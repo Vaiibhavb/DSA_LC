@@ -1,0 +1,29 @@
+iven an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
+
+Consider the number of unique elements in nums to be k​​​​​​​​​​​​​​. After removing duplicates, return the number of unique elements k.
+
+The first k elements of nums should contain the unique numbers in sorted order. The remaining elements beyond index k - 1 can be ignored.
+
+Solution(PYTHON)
+
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        write = 0
+        uni_count = 1
+        n = len(nums)
+        read = 1
+
+        while(read < n):
+            if(nums[read] == nums[read-1]):
+                read+=1
+                continue
+            else:
+                nums[write+1] = nums[read]
+                write+=1
+                uni_count+=1
+                read+=1
+
+        return uni_count            
+        
